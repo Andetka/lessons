@@ -1,4 +1,4 @@
-package average_func
+package average
 
 import (
 	"fmt"

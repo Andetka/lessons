@@ -1,6 +1,7 @@
 package main
 
 import (
+	"awesomeProject/average"
 	"fmt"
 	"log"
 	"os"
@@ -9,14 +10,13 @@ import (
 
 func main() {
 	arguments := os.Args[1:]
-	var sum float64 = 0
+	var numbers []float64
 	for _, argument := range arguments {
 		number, err := strconv.ParseFloat(argument, 64)
 		if err != nil {
 			log.Fatal(err)
 		}
-		sum += number
+		numbers = append(numbers, number)
 	}
-	sampleCount := float64(len(arguments))
-	fmt.Printf("Average: %0.2f\n", sum/sampleCount)
+	fmt.Printf("Average: %0.2f\n", average.Average(numbers...))
 }
