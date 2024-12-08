@@ -1,11 +1,12 @@
 package main
 
 import (
-	"awesomeProject/average"
 	"fmt"
 	"log"
 	"os"
 	"strconv"
+
+	"awesomeProject/average"
 )
 
 func main() {
