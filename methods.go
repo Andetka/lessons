@@ -11,6 +11,7 @@ func (m MyType) sayHi() {
 }
 
 type Number int
+type Number1 int
 
 func (n Number) Add(otherNumber int) {
 	fmt.Println(n, "plus", otherNumber, "is", int(n)+otherNumber)
@@ -18,6 +19,10 @@ func (n Number) Add(otherNumber int) {
 
 func (n Number) Subtract(otherNumber int) {
 	fmt.Println(n, "minus", otherNumber, "is", int(n)-otherNumber)
+}
+
+func (n *Number1) Double() {
+	*n *= 2
 }
 
 func main() {
@@ -32,4 +37,9 @@ func main() {
 	four := Number(4)
 	four.Add(3)
 	four.Subtract(2)
+
+	number := Number1(4)
+	fmt.Println("Original value of number", number)
+	number.Double()
+	fmt.Println("number after calling Double:", number)
 }
