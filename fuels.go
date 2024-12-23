@@ -5,8 +5,22 @@ import (
 )
 
 type Liters float64
+
+func (l Liters) String() string {
+	return fmt.Sprintf("%0.2f L", l)
+}
+
 type Gallons float64
+
+func (g Gallons) String() string {
+	return fmt.Sprintf("%0.2f gal", g)
+}
+
 type Milliliters float64
+
+func (m Milliliters) String() string {
+	return fmt.Sprintf("%0.2f mL", m)
+}
 
 func (l Liters) ToGallons() Gallons {
 	return Gallons(l * 0.264)
@@ -32,4 +46,8 @@ func main() {
 	milk := Gallons(2)
 	fmt.Printf("%0.3f gallons equals %0.3f liters\n", milk, milk.ToLiters())
 	fmt.Printf("%0.3f gallons equals %0.3f milliliters\n", milk, milk.toMilliliters())
+
+	fmt.Println(soda.ToGallons())
+	fmt.Println(water.ToGallons())
+	fmt.Println(milk.toMilliliters())
 }

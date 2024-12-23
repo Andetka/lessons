@@ -4,7 +4,21 @@ import (
 	"awesomeProject/gadget"
 )
 
-func playList(device gadget.TapePlayer, songs []string) {
+type Player interface {
+	Play(string)
+	Stop()
+}
+
+func TryOut(player Player) {
+	player.Play("Тестируемый трек")
+	recorder, ok := player.(gadget.TapeRecorder)
+	if ok {
+		recorder.Record()
+	}
+	player.Stop()
+}
+
+func playList(device Player, songs []string) {
 	for _, song := range songs {
 		device.Play(song)
 	}
@@ -12,7 +26,6 @@ func playList(device gadget.TapePlayer, songs []string) {
 }
 
 func main() {
-	player := gadget.TapePlayer{}
-	mixtape := []string{"Царица", "Поломанные", "Time is running out"}
-	playList(player, mixtape)
+	TryOut(gadget.TapeRecorder{})
+	TryOut(gadget.TapePlayer{})
 }

@@ -9,11 +9,11 @@ type TapePlayer struct {
 }
 
 func (t TapePlayer) Play(song string) {
-	fmt.Println("Playing", song)
+	fmt.Println("Играть", song)
 }
 
 func (t TapePlayer) Stop() {
-	fmt.Println("Stopped!")
+	fmt.Println("Остановить")
 }
 
 type TapeRecorder struct {
@@ -21,13 +21,13 @@ type TapeRecorder struct {
 }
 
 func (t TapeRecorder) Play(song string) {
-	fmt.Println("Playing", song)
+	fmt.Println("Играть", song)
 }
 
 func (t TapeRecorder) Record() {
-	fmt.Println(("Recording"))
+	fmt.Println(("Записать"))
 }
 
 func (t TapeRecorder) Stop() {
-	fmt.Println("Stopped!")
+	fmt.Println("Остановить")
 }
